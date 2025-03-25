@@ -7,4 +7,4 @@ route.post('/', postUser);
 route.put('/:id', putUser);
 route.delete('/:id', deleteUser);
 
-module.exports = route;
+module.exports = route

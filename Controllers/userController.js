@@ -1,9 +1,8 @@
-const { response } = require('express');
 const User = require('../Model/User');
 
 exports.getUser = async ( req , res ) => {
     try {
-        const data =await User.findOne();
+        const data =await User.find();
         return res.json({ error :false , data: data });
     } catch (error) {
         return res.status(400).json({error : true , message : error.message }); 
@@ -34,7 +33,7 @@ exports.putUser = async (req , res ) => {
 exports.deleteUser = async (req ,res) => {
     try {
         const data = await User.findByIdAndDelete(req.perams.id);
-        return response.json({ error: false, data : data });
+        return res.json({ error: false, data : data });
     } catch (error) {
         return res.status(400).json({ error: true, message : error.message });
     }
