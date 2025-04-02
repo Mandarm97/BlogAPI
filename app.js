@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const userRouter = require('./Routes/userRoute');
+const blogRouter = require('./Routes/blogRoute')
 
 // initialization
 const app = express();
@@ -17,6 +18,7 @@ app.get('/' , (req, res) => {
 })
 
 app.use('/api/users', userRouter);
+app.use('/api/users', blogRouter);
 
 app.listen(5000);
 

@@ -1,46 +1,39 @@
-const Blog = require('../Model/Blog')
+const Blog = require('../Model/Blog');
 
-exports.getBlog = async (req, res) => {
+exports.getBlog = async ( req , res ) => {
     try {
-        const data = await Blog.find()
-        return res.json({errors: false, data:data})
+        const data = await Blog.find();
+        return res.json({ error : false, data : data });
     } catch (error) {
-        return res.status(404).json({ errors: true, message: error.message})
+        return res.status(400).json({ error : true, message : message.error });
     }
 }
 
-exports.postBlog = async (req, res) => {
+exports.postBlog = async( req, res ) => {
     try {
-        const newBlog = new Blog(req.body)
+        const newBlog = new Blog(req.body);
         const data = await newBlog.save();
-        return res.json({ errors: false, data: data })
+        return res.json({ error : false, data : data });
     } catch (error) {
-        return res.status(400).json({ errors: true, message: error.message });
+        return res.status(400).json({ error : true, message : message.error });
     }
 }
 
-
-//put
-exports.putBlog = async (req,res) =>{
+exports.putBlog = async( req, res ) => {
     try {
         const id = req.params.id;
-        const data = await Blog.findByIdAndUpdate(id,req.body,{new:true})
-        return res.json({errors:false, data:data})
+        const data = await Blog.findByIdAndUpdate(id, req.body , {new : true})
+        return res.json({ error : false, message : message.error });
     } catch (error) {
-        return res.status(400).json({errors:true, message:error.message})
-        
+        return res.status(400).json({error : true , message : message.error});
     }
 }
 
-//delete
-exports.deleteBlog = async (req,res)=>{
+exports.deleteBlog = async( req, res ) => {
     try {
-        const data = await Blog.findByIdAndDelete(req.params.id);
-        return res.json({errors:false, data:data})
-
+        const data = await Blog.findByIdAndDelete(id, req.body , {new : true})
+        return res.json({ error : false, message : message.error });
     } catch (error) {
-        return res.status(400).json({errors:true, message:error.message})
-        
+        return res.status(400).json({error : true , message : message.error});
     }
 }
-

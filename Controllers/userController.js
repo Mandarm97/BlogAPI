@@ -6,7 +6,6 @@ exports.getUser = async ( req , res ) => {
         return res.json({ error :false , data: data });
     } catch (error) {
         return res.status(400).json({error : true , message : error.message }); 
-        
     }
 }
 
